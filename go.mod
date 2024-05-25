@@ -1,3 +1,3 @@
-module knight
+module salesman
 
-go 1.30
+go 1.23
