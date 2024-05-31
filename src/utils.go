@@ -9,12 +9,34 @@ import (
 	"strings"
 )
 
-func convertToUInt64(s string) (uint64, error) {
-	n, err := strconv.ParseUint(s, 10, 64)
-	if err != nil {
-		return 0, err
+func convertToInt(array []string) []int {
+	var converted []int
+
+	for _, n := range array {
+		n, err := strconv.Atoi(strings.TrimSpace(n))
+		if err != nil {
+			panic("Error converting element:" + err.Error())
+		}
+		converted = append(converted, n)
 	}
-	return n, nil
+
+	return converted
+}
+
+func formatMatrix(size int, data []int) [][]int {
+
+	matrix := make([][]int, size)
+	for i := range matrix {
+		matrix[i] = make([]int, size)
+	}
+
+	for i := 0; i < size; i++ {
+		for j := i + 1; j < size; j++ {
+			matrix[i][j] = data[i + j]
+		}
+	}
+
+	return matrix
 }
 
 func readCSV(filePath string) []string {
