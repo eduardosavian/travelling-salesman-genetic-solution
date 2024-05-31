@@ -10,6 +10,7 @@ import (
 	"strings"
 )
 
+// Read CSV file function with the input row of operation like "4; 2; 5; 10; 8; 4; 7"
 func readCSV(filePath string) []string {
 	file, err := os.Open(filePath)
 	if err != nil {
@@ -35,6 +36,7 @@ func readCSV(filePath string) []string {
 	return records
 }
 
+// Convert string to int function
 func convertToInt(array []string) []int {
 	var converted []int
 
@@ -49,10 +51,8 @@ func convertToInt(array []string) []int {
 	return converted
 }
 
+// Format Matrix function from string of the CSV file
 func formatMatrix(data []int, size int) [][]int {
-	maxUint := ^uint(0)
-	maxInt := int(maxUint >> 1)
-
 	matrix := make([][]int, size)
 	for i := range matrix {
 		matrix[i] = make([]int, size)
@@ -73,7 +73,7 @@ func formatMatrix(data []int, size int) [][]int {
 	for i := 0; i < size; i++ {
 		for j := 0; j < size; j++ {
 			if i == j {
-				matrix[i][j] = maxInt
+				matrix[i][j] = -1
 			}
 		}
 	}
@@ -81,12 +81,12 @@ func formatMatrix(data []int, size int) [][]int {
 	return matrix
 }
 
+// Print Matrix function
 func printMatrix(matrix [][]int) {
 	for _, array := range matrix {
 		for j := range array {
 			fmt.Print(array[j], " ")
 		}
 		fmt.Println()
-
 	}
 }

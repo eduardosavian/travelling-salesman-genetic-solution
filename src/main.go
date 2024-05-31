@@ -12,9 +12,8 @@ func main() {
 	size := converted[0]
 	data := converted[1:]
 
-	fmt.Println(size)
-	fmt.Println(data)
-	fmt.Println()
+	fmt.Println("Graph size:", size)
+	fmt.Println("Data:", data)
 
 	if size < 2 || size > 20 {
 		panic("Invalid graph size, must be gte 2 or lte 20")
@@ -26,5 +25,11 @@ func main() {
 
 	matrix := formatMatrix(data, size)
 
-	geneticAlgorithm(matrix)
+	numGenerations := 100
+	populationSize := 50
+
+	bestRoute, bestDistance := geneticAlgorithm(matrix, numGenerations, populationSize)
+
+	fmt.Println("Best Route:", bestRoute)
+	fmt.Println("Best Distance:", bestDistance)
 }
