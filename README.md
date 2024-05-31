@@ -12,13 +12,9 @@ Entrada: Ler de arquivo texto, com ; (ponto e virgula) para separar os dados, co
 
 4; 2; 5; 10; 8; 4; 7
 
-- Onde o primeiro valor é a quantidade de cidades e os demais a distancia entre elas. No primeiro exemplo são 5 cidades, da cidade 1 para 2 a distância é 10, de 1 para 3 é 15 e assim sucessivamente (conforme tabela abaixo). No segundo problema a quantidade de cidades é 4.
+- Onde o primeiro valor é a quantidade de cidades e os demais a distancia entre elas. No primeiro exemplo são 5 cidades, da cidade 1 para 2 a distância é 10, de 1 para 3 é 15 e assim sucessivamente (conforme tabela abaixo). No segundo problema a quantidade de cidades é 4;
 
-- o número máximo de cidades é de 20 e o arquivo pode ter N problemas a serem resolvidos. No exemplo de entrada o N é 2.
-
-Obs.: O trabalho deve ser apresentado pela equipe no dia da entrega.
-
- go run src/main.go src/utils.go src/methods.go
+- O número máximo de cidades é de 20 e o arquivo pode ter N problemas a serem resolvidos. No exemplo de entrada o N é 2.
 
 ## Run
 
