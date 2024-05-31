@@ -20,6 +20,8 @@ Entrada: Ler de arquivo texto, com ; (ponto e virgula) para separar os dados, co
 
 Obs.: O trabalho deve ser apresentado pela equipe no dia da entrega.
 
+ go run src/main.go src/utils.go src/methods.go
+
 ## Run
 
 ### Windows

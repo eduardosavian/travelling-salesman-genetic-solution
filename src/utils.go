@@ -5,8 +5,17 @@ import (
 	"io"
 	"log"
 	"os"
+	"strconv"
 	"strings"
 )
+
+func convertToUInt64(s string) (uint64, error) {
+	n, err := strconv.ParseUint(s, 10, 64)
+	if err != nil {
+		return 0, err
+	}
+	return n, nil
+}
 
 func readCSV(filePath string) []string {
 	file, err := os.Open(filePath)
