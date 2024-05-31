@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"io"
 	"log"
+	"math"
+	"math/rand"
 	"os"
 	"strconv"
 	"strings"
@@ -89,4 +91,41 @@ func printMatrix(matrix [][]int) {
 		}
 		fmt.Println()
 	}
+}
+
+func contains(route []int, city int) bool {
+	for _, c := range route {
+		if c == city {
+			return true
+		}
+	}
+	return false
+}
+
+func generateRandomRoute(numCities int) []int {
+	route := make([]int, numCities)
+	for i := range route {
+		route[i] = i
+	}
+	rand.Shuffle(len(route), func(i, j int) { route[i], route[j] = route[j], route[i] })
+	return route
+}
+
+func distance(matrix [][]int, city1 int, city2 int) int {
+	if city1 == city2 {
+		return 0
+	}
+	if matrix[city1][city2] == -1 {
+		return math.MaxInt32
+	}
+	return matrix[city1][city2]
+}
+
+func totalDistance(matrix [][]int, route []int) int {
+	total := 0
+	for i := 0; i < len(route)-1; i++ {
+		total += distance(matrix, route[i], route[i+1])
+	}
+	total += distance(matrix, route[len(route)-1], route[0])
+	return total
 }
