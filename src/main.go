@@ -20,10 +20,11 @@ func main() {
 		panic("Invalid graph size, must be gte 2 or lte 20")
 	}
 
-	if (size * size) / 2 - 2 != len(data) {
+	if (size*size)/2-2 != len(data) {
 		panic("Invalid data size, must be equal to graph size")
 	}
 
-	matrix := formatMatrix(size, data)
-	fmt.Println((matrix))
+	matrix := formatMatrix(data, size)
+
+	geneticAlgorithm(matrix)
 }
