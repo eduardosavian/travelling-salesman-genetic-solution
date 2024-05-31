@@ -22,90 +22,13 @@ Obs.: O trabalho deve ser apresentado pela equipe no dia da entrega.
 
 ## Run
 
-### Windows
-
-#### Go build
-
-```ps1
-go build -o libs/knight_tour src/main.go src/methods.go
-```
-
-#### Create Python virtual environment
-
-```s1
-python -m venv venv
-```
-
-#### Activate Python virtual environment
-
-```ps1
-.\venv\Scripts\activate
-```
-
-#### Install Python requirements
-
-```ps1
-pip install -r requirements.txt
-```
-
-#### Create Python executable
-
-```ps1
-pyinstaller --onefile --name salesman --distpath exec --add-data "libs:libs" --hidden-import seaborn src/menu.py
-```
-
-#### Move executable
-
-```ps1
-mv exec/salesman.exe salesman.exe
-
-```
-
-#### Run executable
-
-```ps1
-.\salesman.exe
-```
-
-### Linux
-
-#### Go build
+### Go build
 
 ```bash
-go build -o libs/knight_tour src/main.go src/methods.go
+go build -o salesman src/main.go src/utils.go src/genetic.go
 ```
 
-#### Create Python virtual environment
-
-```bash
-python -m venv venv
-```
-
-#### Activate Python virtual environment
-
-```bash
-source venv/bin/activate
-```
-
-#### Install Python requirements
-
-```bash
-pip install -r requirements.txt
-```
-
-#### Create Python executable
-
-```bash
-pyinstaller --onefile --name salesman --distpath exec --add-data "libs:libs" --hidden-import seaborn src/menu.py
-```
-
-#### Move executable
-
-```bash
-mv exec/salesman salesman
-```
-
-#### Run executable
+### Run executable
 
 ```bash
 ./salesman
