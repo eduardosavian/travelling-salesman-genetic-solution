@@ -1,6 +1,4 @@
-# Knight's tour algorithms
-
-[Vídeo](https://youtu.be/rsfa4lfuNqg)
+# Salesman problem Genetic Algorithm
 
 ## Description
 
@@ -53,20 +51,20 @@ pip install -r requirements.txt
 #### Create Python executable
 
 ```ps1
-pyinstaller --onefile --name knights_tour --distpath exec --add-data "libs:libs" --hidden-import seaborn src/menu.py
+pyinstaller --onefile --name salesman --distpath exec --add-data "libs:libs" --hidden-import seaborn src/menu.py
 ```
 
 #### Move executable
 
 ```ps1
-mv exec/knights_tour.exe knights_tour.exe
+mv exec/salesman.exe salesman.exe
 
 ```
 
 #### Run executable
 
 ```ps1
-.\knights_tour.exe
+.\salesman.exe
 ```
 
 ### Linux
@@ -98,23 +96,23 @@ pip install -r requirements.txt
 #### Create Python executable
 
 ```bash
-pyinstaller --onefile --name knights_tour --distpath exec --add-data "libs:libs" --hidden-import seaborn src/menu.py
+pyinstaller --onefile --name salesman --distpath exec --add-data "libs:libs" --hidden-import seaborn src/menu.py
 ```
 
 #### Move executable
 
 ```bash
-mv exec/knights_tour knights_tour
+mv exec/salesman salesman
 ```
 
 #### Run executable
 
 ```bash
-./knights_tour
+./salesman
 ```
 
 ## Bibliographic references
 
-[An efficient algorithm for the Knight’s tour problem - Ian Parberry](https://core.ac.uk/download/pdf/81964499.pdf)
+[Genetic algorithm - Wikipedia](https://en.wikipedia.org/wiki/Genetic_algorithm)
 
-[Knight's tour - Wikipedia](https://en.wikipedia.org/wiki/Knight's_tour)
+[Travelling salesman problem - Wikipedia](https://en.wikipedia.org/wiki/Travelling_salesman_problem)
