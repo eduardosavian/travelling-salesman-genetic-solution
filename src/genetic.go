@@ -118,4 +118,3 @@ func mutate(route []int) {
 		route[i], route[j] = route[j], route[i]
 	}
 }
-

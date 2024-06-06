@@ -35,3 +35,7 @@ go build -o salesman src/main.go src/utils.go src/genetic.go
 [Genetic algorithm - Wikipedia](https://en.wikipedia.org/wiki/Genetic_algorithm)
 
 [Travelling salesman problem - Wikipedia](https://en.wikipedia.org/wiki/Travelling_salesman_problem)
+
+[Traveling Salesman Problem using Genetic Algorithm - Geeks for Geeks](https://www.geeksforgeeks.org/traveling-salesman-problem-using-genetic-algorithm)
+
+[Traveling Salesman Problem using Genetic Algorithm - Medium](https://medium.com/aimonks/traveling-salesman-problem-tsp-using-genetic-algorithm-fea640713758)
