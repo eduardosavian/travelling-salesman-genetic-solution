@@ -58,22 +58,17 @@ func formatMatrix(data []int, size int) [][]int {
 		matrix[i] = make([]int, size)
 	}
 
-	for i := 0; i < size; i++ {
-		for j := i + 1; j < size; j++ {
-			matrix[i][j] = data[i+j]
-		}
-	}
-
-	for i := 0; i < size; i++ {
-		for j := i + 1; j < size; j++ {
-			matrix[j][i] = data[i+j]
-		}
-	}
+	dataIndex := 0
 
 	for i := 0; i < size; i++ {
 		for j := 0; j < size; j++ {
 			if i == j {
 				matrix[i][j] = -1
+			} else if i < j {
+				matrix[i][j] = data[dataIndex]
+				dataIndex++
+			} else {
+				matrix[i][j] = matrix[j][i]
 			}
 		}
 	}
