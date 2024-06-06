@@ -3,6 +3,7 @@ package main
 import (
 	"math/rand"
 	"time"
+	"fmt"
 )
 
 // Genetic algorithm function to calculate the best route and distance
@@ -15,6 +16,7 @@ func geneticAlgorithm(matrix [][]int, numGenerations int, populationSize int) ([
 	bestDistance := int(^uint(0) >> 1)
 
 	for generation := 0; generation < numGenerations; generation++ {
+		fmt.Print()
 		population = evaluateAndSelect(matrix, population)
 		population = crossoverAndMutate(population)
 		bestInGeneration, bestDistInGeneration := findBestRoute(matrix, population)
@@ -117,28 +119,3 @@ func mutate(route []int) {
 	}
 }
 
-// Find the best route in the population
-func findBestRoute(matrix [][]int, population [][]int) ([]int, int) {
-	bestRoute := make([]int, len(population[0]))
-	bestDistance := int(^uint(0) >> 1)
-
-	for _, route := range population {
-		distance := calculateTotalDistance(matrix, route)
-		if distance < bestDistance {
-			bestDistance = distance
-			copy(bestRoute, route)
-		}
-	}
-
-	return bestRoute, bestDistance
-}
-
-// Calculate the total distance of a route
-func calculateTotalDistance(matrix [][]int, route []int) int {
-	totalDistance := 0
-	for i := 0; i < len(route)-1; i++ {
-		totalDistance += matrix[route[i]][route[i+1]]
-	}
-	totalDistance += matrix[route[len(route)-1]][route[0]]
-	return totalDistance
-}
