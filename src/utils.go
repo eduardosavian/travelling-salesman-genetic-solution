@@ -1,39 +1,45 @@
 package main
 
 import (
-	"encoding/csv"
+	"bufio"
 	"fmt"
-	"io"
 	"log"
 	"os"
 	"strconv"
 	"strings"
 )
 
-// Read CSV file function with the input row of operation like "4; 2; 5; 10; 8; 4; 7"
-func readCSV(filePath string) []string {
+// Read CSV function
+func readCSV(filePath string) [][]string {
 	file, err := os.Open(filePath)
 	if err != nil {
 		log.Fatal(err)
 	}
 	defer file.Close()
 
-	content, err := io.ReadAll(file)
-	if err != nil {
+	var matrix [][]string
+
+	scanner := bufio.NewScanner(file)
+	for scanner.Scan() {
+		line := scanner.Text()
+
+		if len(strings.TrimSpace(line)) == 0 {
+			continue
+		}
+
+		fields := strings.Split(line, ";")
+		matrix = append(matrix, fields)
+	}
+
+	if err := scanner.Err(); err != nil {
 		log.Fatal(err)
 	}
 
-	reader := csv.NewReader(strings.NewReader(string(content)))
-	reader.Comma = ';'
-
-	matrix, err := reader.ReadAll()
-	if err != nil {
-		log.Fatal(err)
+	if len(matrix) == 0 {
+		log.Fatal("The CSV file is empty")
 	}
 
-	records := matrix[0]
-
-	return records
+	return matrix
 }
 
 // Convert string to int function
@@ -86,14 +92,17 @@ func printMatrix(matrix [][]int) {
 		fmt.Println()
 	}
 }
-
-// Calculate the total distance of a route
+// Calculate the total distance of a route, including the return to the starting city
 func calculateTotalDistance(matrix [][]int, route []int) int {
 	totalDistance := 0
-	for i := 0; i < len(route)-1; i++ {
+	numCities := len(route)
+
+	for i := 0; i < numCities-1; i++ {
 		totalDistance += matrix[route[i]][route[i+1]]
 	}
-	totalDistance += matrix[route[len(route)-1]][route[0]]
+	// Include the return to the starting city
+	totalDistance += matrix[route[numCities-1]][route[0]]
+
 	return totalDistance
 }
 
