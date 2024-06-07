@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-	array := readCSV("data/data.csv")
+	array := readCSV("data.txt")
 
 	for _,vectors := range array {
 		converted := convertToInt(vectors)

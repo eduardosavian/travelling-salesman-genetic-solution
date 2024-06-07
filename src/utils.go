@@ -100,7 +100,7 @@ func calculateTotalDistance(matrix [][]int, route []int) int {
 	for i := 0; i < numCities-1; i++ {
 		totalDistance += matrix[route[i]][route[i+1]]
 	}
-	// Include the return to the starting city
+
 	totalDistance += matrix[route[numCities-1]][route[0]]
 
 	return totalDistance
