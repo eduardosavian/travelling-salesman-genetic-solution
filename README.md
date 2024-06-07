@@ -21,13 +21,17 @@ Entrada: Ler de arquivo texto, com ; (ponto e virgula) para separar os dados, co
 ### Go build
 
 ```bash
-go build -o salesman src/main.go src/utils.go src/genetic.go
+go build -o salesman.exe src/main.go src/utils.go src/genetic.go
 ```
 
 ### Run executable
 
 ```bash
 ./salesman
+```
+
+```ps1
+.\salesman.exe
 ```
 
 ## Bibliographic references
